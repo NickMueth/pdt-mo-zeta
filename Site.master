@@ -1,0 +1,86 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="Site" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet" href="Styles/theme.css" type="text/css">
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+        <nav class="navbar navbar-expand-md bg-secondary navbar-dark" style="padding:0px 25px">
+                <a class="navbar-brand" href="Default.aspx">
+                    <img class="img-fluid" src="Images/Logos/shield2.jpg" alt="Logo" style="max-height:75px" />
+                </a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+                    <span class="navbar-toggler-icon" ></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="#">History</a>
+                                <a class="dropdown-item" href="#">Executive Board</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="#">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="#">Recruitment</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="#">Contact us</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                        <asp:HyperLink ID="hplPortal_Login" runat="server" CssClass="nav-link" NavigateUrl="#mdlLogin" Visible="true" data-toggle="modal">
+                            Login
+                        </asp:HyperLink>
+                        </li>
+                    </ul>
+                </div>
+        </nav>
+        <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+        <asp:Panel runat="server" CssClass="modal fade" ID="mdlLogin">
+            <asp:Panel runat="server" CssClass="modal-dialog" role="document">
+                <asp:Panel runat="server" CssClass="modal-content">
+                    <asp:Panel runat="server" CssClass="modal-header bg-info">
+                        <h5 class="modal-title">Login to member portal:</h5>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span>×</span>
+                        </button>
+                    </asp:Panel>
+                    <asp:Panel runat="server" CssClass="modal-body row">
+                        <asp:Label ID="lblUser" runat="server" Text="Username:" CssClass="col-3"></asp:Label>
+                        <asp:TextBox ID="userTextBox" runat="server" CssClass="col-8"></asp:TextBox>                   
+                    </asp:Panel>
+                    <asp:Panel runat="server" CssClass="modal-body row">
+                        <asp:Label ID="lblPass" runat="server" Text="Password:" CssClass="col-3"></asp:Label>
+                        <asp:TextBox ID="passTextBox" runat="server" TextMode="Password" CssClass="col-8"></asp:TextBox>
+                    </asp:Panel>
+                    <asp:Panel runat="server" CssClass="modal-footer">
+                        <asp:Label ID="lblError" runat="server" Text=""></asp:Label>
+                        <asp:Button ID="btnLogin" runat="server" CssClass="btn btn-primary w-25" Text="Login" OnClick="btnLogin_Click"/>
+                    </asp:Panel>
+                </asp:Panel>
+            </asp:Panel>
+        </asp:Panel>
+    </div>
+    </form>
+</body>
+</html>
